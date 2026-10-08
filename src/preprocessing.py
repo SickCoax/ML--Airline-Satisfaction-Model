@@ -32,7 +32,11 @@ def get_X_y(df) :
 
     df.loc[df["Arrival Delay in Minutes"].isnull() , "Arrival Delay in Minutes"] = 0
 
-    X = df.drop(["satisfaction"] , axis = 1)
+    df["Total Delay"] = df["Departure Delay in Minutes"] + df["Arrival Delay in Minutes"]
+
+    df["Overall Rating"] = df["Inflight wifi service"] + df["Baggage handling"] + df["On-board service"] + df["Leg room service"] + df["Inflight entertainment"] + df["Departure/Arrival time convenient"] + df["Ease of Online booking"] + df["Gate location"] + df["Food and drink"] + df["Online boarding"] + df["Seat comfort"] + df["Checkin service"] + df["Cleanliness"]
+
+    X = df.drop(["satisfaction" , "id"] , axis = 1)
     y = df[["satisfaction"]]
 
     y = OrdinalEncoder().fit_transform(y)
@@ -72,4 +76,10 @@ def get_X(df) :
 
     df.loc[df["Arrival Delay in Minutes"].isnull() , "Arrival Delay in Minutes"] = 0
 
-    return df
+    df["Total Delay"] = df["Departure Delay in Minutes"] + df["Arrival Delay in Minutes"]
+
+    df["Overall Rating"] = df["Inflight wifi service"] + df["Baggage handling"] + df["On-board service"] + df["Leg room service"] + df["Inflight entertainment"] + df["Departure/Arrival time convenient"] + df["Ease of Online booking"] + df["Gate location"] + df["Food and drink"] + df["Online boarding"] + df["Seat comfort"] + df["Checkin service"] + df["Cleanliness"]
+
+    X = df.drop(["id"] , axis = 1)
+
+    return X
