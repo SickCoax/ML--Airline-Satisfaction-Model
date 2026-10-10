@@ -18,9 +18,16 @@ def get_model(X_train , y_train) :
         ("preprocess" , preprocess) ,
         ("xgbc" , XGBClassifier(
             n_jobs = -1 ,
-            subsample = 0.8 ,
-            colsample_bytree = 0.8 ,
-            random_state = 42
+            subsample = 0.9260074439454506 ,
+            colsample_bytree = 0.7104877345208437 ,
+            random_state = 42 ,
+            n_estimators = 1423 ,
+            max_depth = 11 ,
+            learning_rate = 0.013735365034512911 ,
+            min_child_weight = 13 ,
+            gamma = 1.9999543167310362e-06 ,
+            reg_alpha = 6.906442415150357 ,
+            reg_lambda = 9.5312610099552e-05
         ))
     ])
 

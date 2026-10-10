@@ -34,7 +34,19 @@ def get_X_y(df) :
 
     df["Total Delay"] = df["Departure Delay in Minutes"] + df["Arrival Delay in Minutes"]
 
-    df["Overall Rating"] = df["Inflight wifi service"] + df["Baggage handling"] + df["On-board service"] + df["Leg room service"] + df["Inflight entertainment"] + df["Departure/Arrival time convenient"] + df["Ease of Online booking"] + df["Gate location"] + df["Food and drink"] + df["Online boarding"] + df["Seat comfort"] + df["Checkin service"] + df["Cleanliness"]
+    # df["Delay Diff"] = df["Departure Delay in Minutes"] - df["Arrival Delay in Minutes"]
+
+    # df["Overall Rating"] = df["Inflight wifi service"]  + df["Baggage handling"] + df["On-board service"] + df["Leg room service"] + df["Inflight entertainment"] + df["Departure/Arrival time convenient"] + df["Ease of Online booking"] + df["Gate location"] + df["Food and drink"] + df["Online boarding"] + df["Seat comfort"] + df["Checkin service"] + df["Cleanliness"]
+
+    # df["distance * Rating"] = df["Flight Distance"] * df["Overall Rating"] 
+
+    # df["distance / Rating"] = df["Flight Distance"] / df["Overall Rating"]
+
+    # df["Inflight_Rating"] = df["Inflight wifi service"] + df["Food and drink"] + df["Seat comfort"] + df[ "Inflight entertainment"] + df["On-board service"] + df["Leg room service"]
+
+    # df["Outflight_Rating"] = df["Departure/Arrival time convenient"] + df["Ease of Online booking"] + df["Gate location"] + df["Online boarding"] + df["Baggage handling"] + df["Checkin service"]   
+
+    df = df.drop(["Arrival Delay in Minutes" , "Departure Delay in Minutes" ] , axis = 1)
 
     X = df.drop(["satisfaction" , "id"] , axis = 1)
     y = df[["satisfaction"]]
@@ -78,8 +90,13 @@ def get_X(df) :
 
     df["Total Delay"] = df["Departure Delay in Minutes"] + df["Arrival Delay in Minutes"]
 
-    df["Overall Rating"] = df["Inflight wifi service"] + df["Baggage handling"] + df["On-board service"] + df["Leg room service"] + df["Inflight entertainment"] + df["Departure/Arrival time convenient"] + df["Ease of Online booking"] + df["Gate location"] + df["Food and drink"] + df["Online boarding"] + df["Seat comfort"] + df["Checkin service"] + df["Cleanliness"]
+    # df["Delay Diff"] = df["Departure Delay in Minutes"] - df["Arrival Delay in Minutes"]
+
+    # df["Overall Rating"] = df["Inflight wifi service"] + df["Baggage handling"] + df["On-board service"] + df["Leg room service"] + df["Inflight entertainment"] + df["Departure/Arrival time convenient"] + df["Ease of Online booking"] + df["Gate location"] + df["Food and drink"] + df["Online boarding"] + df["Seat comfort"] + df["Checkin service"] + df["Cleanliness"]
+
+    df = df.drop(["Arrival Delay in Minutes" , "Departure Delay in Minutes" ] , axis = 1)
 
     X = df.drop(["id"] , axis = 1)
 
     return X
+
