@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from preprocessing import get_X_y , get_X
-from train import get_model
+from train_xgbc import get_model
 
 
 csv_path = os.path.join(

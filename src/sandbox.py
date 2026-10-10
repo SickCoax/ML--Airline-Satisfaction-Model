@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 from preprocessing import get_X_y 
-from train import get_model
+from train_xgbc import get_model
 from sklearn.model_selection import cross_val_score , StratifiedKFold
 from xgboost import XGBClassifier
 from sklearn.pipeline import Pipeline
