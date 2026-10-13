@@ -1,12 +1,9 @@
-import os
-from preprocessing import get_X_y
-import pandas as pd
 from xgboost import XGBClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 
-def get_model(X_train , y_train) : 
+def train_xgbc(X_train , y_train) : 
 
     cat_cols = X_train.select_dtypes(include = ["string" , "object"]).columns
 
