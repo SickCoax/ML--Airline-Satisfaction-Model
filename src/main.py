@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from preprocessing import get_X_y , get_X
 from train_xgbc import train_xgbc
+from train_cb import train_cbc
 
 
 csv_path = os.path.join(
@@ -23,13 +24,18 @@ df_test = pd.read_csv(csv_path)
 X_train , y_train = get_X_y(df_train)
 X_test = get_X(df_test)
 
-model = train_xgbc(
+xgbc_model = train_xgbc(
+    X_train ,
+    y_train
+)
+
+cbc_model = train_cbc(
     X_train ,
     y_train
 )
 
 id = df_test["id"].values
-y_prob = model.predict_proba(X_test)[ : , 1]
+y_prob = xgbc_model.predict_proba(X_test)[ : , 1]
 
 
 result = pd.DataFrame(

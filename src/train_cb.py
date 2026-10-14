@@ -1,4 +1,3 @@
-import pandas as pd
 from catboost import CatBoostClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
@@ -15,12 +14,12 @@ def train_cbc(X_train , y_train) :
     model = Pipeline([
         ("preprocess" , preprocess) ,
         ("cbc" , CatBoostClassifier(
-            iterations = None ,
-            learning_rate = None ,
-            depth = None ,
-            l2_leaf_reg = None , 
-            random_strength = None ,
-            border_count = None ,
+            iterations = 1971 ,
+            learning_rate = 0.008513323279531235 ,
+            depth = 10 ,
+            l2_leaf_reg = 12.578821933374982 , 
+            random_strength = 9.049273412474395 ,
+            border_count = 251 ,
             boosting_type = "Plain" ,
             grow_policy = "Depthwise" ,
             eval_metric = "AUC" ,
@@ -37,4 +36,3 @@ def train_cbc(X_train , y_train) :
     )
 
     return model
-
