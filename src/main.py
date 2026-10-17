@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 from preprocessing import get_X_y , get_X
-from train_xgbc import train_xgbc
-from train_cb import train_cbc
+from train_xgbc import get_xgbc
+from train_cb import get_cbc
 
 
 csv_path = os.path.join(
@@ -24,12 +24,12 @@ df_test = pd.read_csv(csv_path)
 X_train , y_train = get_X_y(df_train)
 X_test = get_X(df_test)
 
-xgbc_model = train_xgbc(
+xgbc_model = get_xgbc(
     X_train ,
     y_train
 )
 
-cbc_model = train_cbc(
+cbc_model = get_cbc(
     X_train ,
     y_train
 )
